@@ -64,4 +64,15 @@ export const env = {
 
   /** Google OAuth client ID for storefront customer login */
   googleClientId: process.env.GOOGLE_CLIENT_ID?.trim() || "",
+
+  /**
+   * Public base URL of this API (no trailing slash).
+   * Used when building absolute `/uploads/...` image URLs for browsers.
+   * Production example: https://api.bubble-iq.com
+   */
+  publicApiUrl: (
+    process.env.PUBLIC_API_URL ??
+    process.env.API_PUBLIC_URL ??
+    `http://127.0.0.1:${process.env.PORT ?? 3001}`
+  ).replace(/\/$/, ""),
 } as const;

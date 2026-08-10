@@ -44,7 +44,8 @@
       "@modules/customers": ["modules/customers/index.ts"],
       "@modules/dashboard": ["modules/dashboard/index.ts"],
       "@modules/website": ["modules/website/index.ts"],
-      "@modules/store": ["modules/store/index.ts"]
+      "@modules/store": ["modules/store/index.ts"],
+      "@modules/uploads": ["modules/uploads/index.ts"]
     }
   },
   "include": ["src/**/*.ts"]

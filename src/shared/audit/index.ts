@@ -38,6 +38,11 @@ export type AuditAction =
   | "website.section.update"
   | "website.section.delete"
   | "website.section.restore"
+  | "partner.create"
+  | "partner.update"
+  | "partner.delete"
+  | "partner.restore"
+  | "upload.create"
   | "order.update"
   | "auth.login"
   | "auth.bootstrap";

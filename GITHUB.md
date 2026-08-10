@@ -19,6 +19,25 @@
 | `uploads/` / `tmp/` | ملفات محلية |
 | `.idea/` / `.vscode/` (شخصي) / `.DS_Store` | إعدادات الجهاز |
 
+## رفع الصور (إنتاج)
+
+في `.env` على السيرفر:
+
+```env
+PUBLIC_API_URL=https://api.bubble-iq.com
+```
+
+ترحيل الصور القديمة من base64 إلى ملفات:
+
+```bash
+cd /opt/bubble/backend
+bun run migrate:uploads:dry   # معاينة
+bun run migrate:uploads       # تنفيذ
+systemctl restart bubble-backend
+```
+
+nginx لـ `api.bubble-iq.com` يجب أن يمرّر `/uploads/` و`/admin/uploads` إلى المنفذ 3001 (نفس `location /` الحالي يكفي).
+
 ## قبل أول رفع
 
 ```bash

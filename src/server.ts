@@ -15,9 +15,18 @@ async function bootstrap() {
     });
   }
 
-  app.listen(env.port, (server) => {
-    bindOrderRealtimeServer(server as Parameters<typeof bindOrderRealtimeServer>[0]);
-  });
+  app.listen(
+    {
+      port: env.port,
+      // Allow multipart image uploads up to ~10MB (admin /uploads)
+      maxRequestBodySize: 10 * 1024 * 1024,
+    },
+    (server) => {
+      bindOrderRealtimeServer(
+        server as Parameters<typeof bindOrderRealtimeServer>[0],
+      );
+    },
+  );
 
   // Fallback if listen callback signature differs
   if (app.server) {

@@ -14,6 +14,7 @@ import { storeRoutes } from "@modules/store";
 import { orderRoutes } from "@modules/orders";
 import { dashboardRoutes } from "@modules/dashboard";
 import { customerRoutes } from "@modules/customers";
+import { uploadAdminRoutes, uploadsStaticRoutes } from "@modules/uploads";
 import { orderWsRoutes } from "../sockets/orders.ws";
 
 export const routes = new Elysia()
@@ -26,6 +27,8 @@ export const routes = new Elysia()
     status: messages.statusHealthy,
     timestamp: new Date().toISOString(),
   }))
+  .use(uploadsStaticRoutes)
+  .use(uploadAdminRoutes)
   .use(authRoutes)
   .use(userRoutes)
   .use(customerRoutes)

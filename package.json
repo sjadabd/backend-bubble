@@ -8,6 +8,8 @@
     "start": "bun run src/server.ts",
     "seed": "bun run src/database/seed/seed.ts",
     "seed:website": "bun run src/database/seed/seed-website.ts",
+    "migrate:uploads": "bun run src/database/scripts/migrate-data-urls-to-uploads.ts",
+    "migrate:uploads:dry": "bun run src/database/scripts/migrate-data-urls-to-uploads.ts --dry-run",
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "test": "bun test src/__tests__"
