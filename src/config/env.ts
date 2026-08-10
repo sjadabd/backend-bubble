@@ -25,9 +25,10 @@ export const env = {
   nodeEnv,
   isProd,
   mongodbUri: process.env.MONGODB_URI ?? "mongodb://127.0.0.1:27018/bubble",
-  corsOrigin: (process.env.CORS_ORIGIN ?? "http://localhost:3000,http://localhost:3002")
+  corsOrigin: (process.env.CORS_ORIGIN ??
+    "http://localhost:3000,http://localhost:3002")
     .split(",")
-    .map((origin) => origin.trim())
+    .map((origin) => origin.trim().replace(/\/$/, ""))
     .filter(Boolean),
 
   /** Access token signing — never reuse for encryption */
