@@ -25,7 +25,7 @@ async function materialize(value: string): Promise<string> {
 }
 
 async function walk(value: unknown): Promise<{ value: unknown } & WalkResult> {
-  if (isDataImageUrl(value)) {
+  if (typeof value === "string" && isDataImageUrl(value)) {
     return {
       value: await materialize(value),
       changed: true,

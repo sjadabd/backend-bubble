@@ -43,7 +43,7 @@ export const CustomerRepository = {
     const existingByGoogle = await Customer.findOne({ googleId: input.googleId });
     if (existingByGoogle) {
       existingByGoogle.email = email;
-      existingByGoogle.avatar = input.avatar ?? null;
+      existingByGoogle.avatar = input.avatar ?? existingByGoogle.avatar ?? undefined;
       existingByGoogle.isActive = true;
       if (!existingByGoogle.name?.trim()) {
         existingByGoogle.name = input.name;
@@ -56,7 +56,7 @@ export const CustomerRepository = {
     if (existingByEmail) {
       // Link demo / legacy row to real Google account (same email)
       existingByEmail.googleId = input.googleId;
-      existingByEmail.avatar = input.avatar ?? existingByEmail.avatar ?? null;
+      existingByEmail.avatar = input.avatar ?? existingByEmail.avatar ?? undefined;
       existingByEmail.isActive = true;
       if (!existingByEmail.name?.trim()) {
         existingByEmail.name = input.name;
@@ -69,7 +69,7 @@ export const CustomerRepository = {
       googleId: input.googleId,
       email,
       name: input.name,
-      avatar: input.avatar ?? null,
+      avatar: input.avatar ?? undefined,
       phone: "",
       address: "",
       isActive: true,
