@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "Preserve",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@database/*": ["database/*"],
+      "@constants": ["constants/index.ts"],
+      "@constants/*": ["constants/*"],
+      "@shared": ["shared/index.ts"],
+      "@shared/*": ["shared/*"],
+      "@modules/*": ["modules/*"],
+      "@modules/auth": ["modules/auth/index.ts"],
+      "@modules/users": ["modules/users/index.ts"],
+      "@modules/categories": ["modules/categories/index.ts"],
+      "@modules/brands": ["modules/brands/index.ts"],
+      "@modules/partners": ["modules/partners/index.ts"],
+      "@modules/tags": ["modules/tags/index.ts"],
+      "@modules/attributes": ["modules/attributes/index.ts"],
+      "@modules/products": ["modules/products/index.ts"],
+      "@modules/promotions": ["modules/promotions/index.ts"],
+      "@modules/orders": ["modules/orders/index.ts"],
+      "@modules/customers": ["modules/customers/index.ts"],
+      "@modules/dashboard": ["modules/dashboard/index.ts"],
+      "@modules/website": ["modules/website/index.ts"],
+      "@modules/store": ["modules/store/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
